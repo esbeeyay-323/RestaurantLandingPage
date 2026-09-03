@@ -30,6 +30,30 @@
   --color-overlay-70: #0b0a08b3;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+html {
+  color-scheme: dark;
+  scrollbar-color: var(--color-smoke-700) var(--color-coal-950);
+}
+
+::-webkit-scrollbar {
+  width: 0.65rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-coal-950);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid var(--color-coal-950);
+  background: var(--color-smoke-700);
+}
+
 .image-blend {
   -webkit-mask-image:
     linear-gradient(
@@ -66,4 +90,180 @@
     );
 
   mask-composite: intersect;
+}
+
+.hero-type-line {
+  --type-delay: 150ms;
+  --type-duration: 550ms;
+  --type-steps: 5;
+
+  position: relative;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  clip-path: inset(0 100% 0 0);
+  animation: hero-type-reveal var(--type-duration)
+    steps(var(--type-steps), end) var(--type-delay) both;
+}
+
+.hero-type-line:nth-child(2) {
+  --type-delay: 800ms;
+  --type-duration: 750ms;
+  --type-steps: 8;
+}
+
+.hero-type-line:nth-child(3) {
+  --type-delay: 1650ms;
+  --type-duration: 1100ms;
+  --type-steps: 13;
+}
+
+.hero-type-line::after {
+  content: "";
+  position: absolute;
+  top: 0.08em;
+  right: -0.08em;
+  width: 2px;
+  height: 0.76em;
+  background: var(--color-ember-500);
+  opacity: 0;
+  animation: hero-caret var(--type-duration) step-end var(--type-delay) both;
+}
+
+.button-breathe {
+  --button-glow: var(--color-ember-300);
+
+  animation: button-breathe 3.2s ease-in-out infinite;
+  will-change: transform, box-shadow;
+}
+
+.button-breathe--ember {
+  --button-glow: var(--color-ember-300);
+}
+
+.button-breathe--brass {
+  --button-glow: var(--color-brass-400);
+  animation-delay: 650ms;
+}
+
+.button-breathe:hover,
+.button-breathe:focus-visible {
+  animation-play-state: paused;
+}
+
+@keyframes hero-type-reveal {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes hero-caret {
+  0%,
+  20%,
+  40%,
+  60%,
+  80% {
+    opacity: 1;
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes button-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 color-mix(in srgb, var(--button-glow) 0%, transparent);
+  }
+
+  50% {
+    transform: scale(1.012);
+    box-shadow: 0 0 1.35rem
+      color-mix(in srgb, var(--button-glow) 28%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-type-line,
+  .hero-type-line::after,
+  .button-breathe {
+    animation: none;
+  }
+
+  .hero-type-line {
+    clip-path: none;
+  }
+}
+
+.menu-stage {
+  --menu-paper-width: 82%;
+  --menu-burn-width: 28%;
+
+  position: relative;
+  min-height: 100dvh;
+  overflow: hidden;
+  background: var(--color-coal-950);
+}
+
+.menu-paper {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: var(--menu-paper-width);
+
+  background-color: #d8c09f;
+  background-image:
+    linear-gradient(
+      rgb(255 240 210 / 18%),
+      rgb(100 65 35 / 10%)
+    ),
+    url("./assets/Textures/Paper001_1K-JPG_Color.jpg");
+
+  background-repeat: no-repeat, repeat;
+  background-size: cover, 512px 512px;
+  background-blend-mode: soft-light, multiply;
+
+  -webkit-mask-image: url("./assets/Textures/Burn5-mask-final.png");
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-position: left top;
+  -webkit-mask-repeat: no-repeat;
+
+  mask-image: url("./assets/Textures/Burn5-mask-final.png");
+  mask-size: 100% 100%;
+  mask-position: left top;
+  mask-repeat: no-repeat;
+}
+
+.menu-burn-detail {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  z-index: 1;
+  width: var(--menu-paper-width);
+
+  background-image: url("./assets/Textures/Burn5-char-only-final.png");
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: var(--menu-burn-width) 100%;
+
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.48;
+}
+
+@media (max-width: 639px) {
+  .menu-stage {
+    --menu-paper-width: 94%;
+  }
+
+  .menu-burn-detail {
+    opacity: 0.42;
+  }
 }

@@ -1,5 +1,5 @@
 
-import HomePage from './Pages/HomePage';
+import PageLayout from './Pages/PageLayout';
 
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-    <HomePage/>
+    <PageLayout/>
     </>
   )
 }

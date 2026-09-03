@@ -1,51 +1,116 @@
 import mainHero from "../assets/flame-grilled-ribeye.jpg"
 import MyDrawer from "../Components/Drawer"
-const HomePage = () => {
-  return (
-    <main className="flex min-h-dvh flex-col items-center justify-center bg-coal-950">
-        <header className="w-full p-3 flex justify-end lg:invisible">
-            <MyDrawer/>
-        </header>
-      <section className="flex w-full flex-col items-start gap-6 p-6 pb-3 pt-1">
-        <div className="w-full flex items-center flex-col justify-center text-center">
-            <h1 className="font-display text-[23px] font-semibold uppercase tracking-[0.14em] text-bone-50 md:text-[30px]">
-              Ember <span className="text-ember-500">&amp;</span> Oak
-            </h1>
-            <div className="mt-7 flex flex-col font-display text-[56px] font-medium leading-[0.9] tracking-[-0.025em] text-bone-50 md:text-[72px] lg:text-[96px]">
-                <span>Fire.</span>
-                <span>Flavour.</span>
-                <span>Good Company.</span>
-            </div>
 
-        </div>
-        
-      <div className="w-full flex items-center justify-center">
+const navigationItems = ["Menu", "Reservations", "About", "Gallery", "Contact"]
+const heroLines = ["Fire.", "Flavour.", "Good Company."]
+
+const actions = [
+  { label: "Make a Reservation", variant: "ember" },
+  { label: "Explore the Menu", variant: "brass" },
+] as const
+
+const buttonBaseClasses = [
+  "button-breathe h-14 w-full cursor-pointer border px-6",
+  "font-body text-[13px] font-semibold uppercase tracking-[0.14em]",
+  "transition-colors duration-200 focus-visible:outline-2",
+  "focus-visible:outline-offset-4 md:h-13",
+].join(" ")
+
+const buttonVariantClasses = {
+  ember: [
+    "button-breathe--ember border-ember-300 bg-ember-600 text-bone-50",
+    "hover:bg-ember-500 focus-visible:outline-ember-300 active:bg-ember-600",
+  ].join(" "),
+  brass: [
+    "button-breathe--brass border-brass-400 bg-transparent text-brass-200",
+    "hover:border-brass-200 hover:bg-coal-800",
+    "focus-visible:outline-brass-400 active:bg-coal-800",
+  ].join(" "),
+}
+
+const Brand = ({ className = "" }: { className?: string }) => (
+  <a
+    href="/"
+    aria-label="Ember and Oak home"
+    className={`font-display text-[clamp(1.4rem,1.5vw,2.5rem)] font-semibold uppercase tracking-[0.14em] text-bone-50 ${className}`}
+  >
+    Ember <span className="text-ember-500">&amp;</span> Oak
+  </a>
+)
+
+const MobileHeader = () => (
+  <header className="flex w-full justify-end p-3 lg:hidden">
+    <MyDrawer />
+  </header>
+)
+
+const DesktopHeader = () => (
+  <header className="hidden w-full grid-cols-[1fr_auto_1fr] items-center bg-coal-950 p-8 lg:grid">
+    <Brand className="justify-self-start" />
+
+    <nav aria-label="Primary navigation">
+      <ul className="flex gap-6 uppercase text-bone-50">
+        {navigationItems.map((item) => (
+          <li key={item}>
+            <a href={`#${item.toLowerCase()}`}>{item}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div aria-hidden="true" />
+  </header>
+)
+
+const HeroHeading = () => (
+  <h1 className="mt-7 flex flex-col items-center font-display text-[clamp(2.35rem,12.5vw,3.5rem)] font-medium leading-[0.9] tracking-tight text-bone-50 md:text-[72px] lg:text-[clamp(6rem,5.5vw,9rem)]">
+    {heroLines.map((line) => (
+      <span className="hero-type-line" key={line}>
+        {line}
+      </span>
+    ))}
+  </h1>
+)
+
+const ActionButtons = ({ className }: { className: string }) => (
+  <div className={className}>
+    {actions.map(({ label, variant }) => (
+      <button
+        key={label}
+        type="button"
+        className={`${buttonBaseClasses} ${buttonVariantClasses[variant]}`}
+      >
+        {label}
+      </button>
+    ))}
+  </div>
+)
+
+const HomePage = () => (
+  <main className="flex min-h-dvh flex-col items-center bg-coal-950">
+    <MobileHeader />
+    <DesktopHeader />
+
+    <section className="flex w-full flex-col items-start gap-6 px-4 pb-3 pt-1 sm:px-6 lg:flex-1 lg:flex-row lg:items-center lg:justify-center">
+      <div className="flex w-full flex-col items-center justify-center gap-6 text-center">
+        <Brand className="lg:hidden" />
+        <HeroHeading />
+        <ActionButtons className="hidden w-4/5 gap-6 lg:flex" />
+      </div>
+
+      <div className="flex w-full items-center justify-center">
         <img
-          className="image-blend h-auto w-150 max-w-full"
+          className="image-blend h-auto w-full lg:w-[clamp(32rem,35vw,100rem)] lg:max-w-full"
           src={mainHero}
           alt="Flame-grilled ribeye"
           decoding="async"
           fetchPriority="high"
         />
-    </div>  
-        <div className="w-full flex flex-col gap-6">
-            <button
-              type="button"
-              className="h-14 w-full cursor-pointer border border-ember-300 bg-ember-600 px-6 font-body text-[13px] font-semibold uppercase tracking-[0.14em] text-bone-50 transition-colors duration-200 hover:bg-ember-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ember-300 active:bg-ember-600 md:h-13"
-            >
-              Make a Reservation
-            </button>
-            <button
-              type="button"
-              className="h-14 w-full cursor-pointer border border-brass-400 bg-transparent px-6 font-body text-[13px] font-semibold uppercase tracking-[0.14em] text-brass-200 transition-colors duration-200 hover:border-brass-200 hover:bg-coal-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brass-400 active:bg-coal-800 md:h-13"
-            >
-              Explore the Menu
-            </button>
-        </div>
-        
-      </section>
-    </main>
-  )
-}
+      </div>
+
+      <ActionButtons className="flex w-full flex-col gap-6 lg:hidden" />
+    </section>
+  </main>
+)
 
 export default HomePage
