@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Barlow", "Arial Narrow", sans-serif;
+
+  --color-coal-950: #0b0a08;
+  --color-coal-900: #12100d;
+  --color-coal-800: #1b1712;
+
+  --color-smoke-700: #312820;
+
+  --color-bone-50: #f4eddf;
+  --color-bone-100: #e8dcc8;
+
+  --color-ash-300: #b9ab98;
+  --color-ash-500: #817568;
+
+  --color-ember-300: #e65a3a;
+  --color-ember-500: #c8321d;
+  --color-ember-600: #a92314;
+
+  --color-brass-200: #e0c38f;
+  --color-brass-400: #c89b52;
+
+  --color-success-500: #67b87a;
+  --color-error-500: #d94a3a;
+
+  --color-overlay-70: #0b0a08b3;
+}
+
+.image-blend {
+  -webkit-mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      black 15%,
+      black 90%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 15%,
+      black 90%,
+      transparent 100%
+    );
+
+  -webkit-mask-composite: source-in;
+
+  mask-image:
+    linear-gradient(
+      to right,
+      transparent 0%,
+      black 15%,
+      black 90%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 15%,
+      black 90%,
+      transparent 100%
+    );
+
+  mask-composite: intersect;
+}
