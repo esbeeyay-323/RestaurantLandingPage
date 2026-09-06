@@ -28,7 +28,11 @@ const Menu = [
     }
 ]
 
-const MyDrawer: React.FC = () => {
+type MyDrawerProps = {
+  tone?: "dark" | "paper";
+};
+
+const MyDrawer: React.FC<MyDrawerProps> = ({ tone = "dark" }) => {
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
@@ -41,9 +45,18 @@ const MyDrawer: React.FC = () => {
 
   return (
     <>
-      <div onClick={showDrawer} className='w-12.5'>
-        <img className='w-full brightness-0 invert' src={hamburger}></img>
-      </div>
+      <button
+        type="button"
+        aria-label="Open navigation menu"
+        onClick={showDrawer}
+        className="w-12.5 cursor-pointer"
+      >
+        <img
+          className={`w-full ${tone === "dark" ? "brightness-0 invert" : "brightness-0"}`}
+          src={hamburger}
+          alt=""
+        />
+      </button>
       <Drawer
         closable={{ placement: 'end' }}
         onClose={onClose}

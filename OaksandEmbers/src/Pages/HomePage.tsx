@@ -4,6 +4,8 @@ import MyDrawer from "../Components/Drawer"
 const navigationItems = ["Menu", "Reservations", "About", "Gallery", "Contact"]
 const heroLines = ["Fire.", "Flavour.", "Good Company."]
 
+type HeaderTone = "dark" | "paper"
+
 const actions = [
   { label: "Make a Reservation", variant: "ember" },
   { label: "Explore the Menu", variant: "brass" },
@@ -28,31 +30,39 @@ const buttonVariantClasses = {
   ].join(" "),
 }
 
-const Brand = ({ className = "" }: { className?: string }) => (
-  <a
-    href="/"
-    aria-label="Ember and Oak home"
-    className={`font-display text-[clamp(1.4rem,1.5vw,2.5rem)] font-semibold uppercase tracking-[0.14em] text-bone-50 ${className}`}
+const Brand = ({
+  className = "",
+  tone = "dark",
+}: {
+  className?: string
+  tone?: HeaderTone
+}) => (
+  <p
+    className={`font-display text-[clamp(1.4rem,1.75vw,3.5rem)] font-semibold uppercase tracking-[0.14em] ${tone === "paper" ? "text-ink-900" : "text-bone-50"} ${className}`}
   >
     Ember <span className="text-ember-500">&amp;</span> Oak
-  </a>
+  </p>
 )
 
-const MobileHeader = () => (
+export const MobileHeader = ({ tone = "dark" }: { tone?: HeaderTone }) => (
   <header className="flex w-full justify-end p-3 lg:hidden">
-    <MyDrawer />
+    <MyDrawer tone={tone} />
   </header>
 )
 
-const DesktopHeader = () => (
-  <header className="hidden w-full grid-cols-[1fr_auto_1fr] items-center bg-coal-950 p-8 lg:grid">
-    <Brand className="justify-self-start" />
+export const DesktopHeader = ({ tone = "dark" }: { tone?: HeaderTone }) => (
+  <header
+    className={`hidden w-full grid-cols-[1fr_auto_1fr] items-center p-8 lg:grid ${tone === "paper" ? "bg-transparent" : "bg-coal-950"}`}
+  >
+    <Brand className="justify-self-start" tone={tone} />
 
     <nav aria-label="Primary navigation">
-      <ul className="flex gap-6 uppercase text-bone-50">
+      <ul
+        className={`flex gap-[clamp(1.25rem,1.5vw,2.5rem)] font-body text-[clamp(0.75rem,0.65vw,1.25rem)] font-medium uppercase tracking-[0.06em] ${tone === "paper" ? "text-ink-900" : "text-bone-50"}`}
+      >
         {navigationItems.map((item) => (
           <li key={item}>
-            <a href={`#${item.toLowerCase()}`}>{item}</a>
+            <span>{item}</span>
           </li>
         ))}
       </ul>

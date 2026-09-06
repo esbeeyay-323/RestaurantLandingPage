@@ -24,6 +24,10 @@
   --color-brass-200: #e0c38f;
   --color-brass-400: #c89b52;
 
+  --color-paper-200: #d8c09f;
+  --color-ink-600: #765f4a;
+  --color-ink-900: #2b2118;
+
   --color-success-500: #67b87a;
   --color-error-500: #d94a3a;
 
@@ -203,13 +207,30 @@ html {
 }
 
 .menu-stage {
-  --menu-paper-width: 82%;
+  --menu-paper-width: 96%;
   --menu-burn-width: 28%;
+  --menu-content-width: 72%;
+  --menu-header-width: 92%;
 
   position: relative;
   min-height: 100dvh;
   overflow: hidden;
   background: var(--color-coal-950);
+}
+
+.menu-content {
+  position: relative;
+  z-index: 2;
+  min-height: 100dvh;
+  color: var(--color-ink-900);
+}
+
+.menu-header-shell {
+  width: var(--menu-header-width);
+}
+
+.menu-body {
+  width: var(--menu-content-width);
 }
 
 .menu-paper {
@@ -218,13 +239,13 @@ html {
   left: 0;
   width: var(--menu-paper-width);
 
-  background-color: #d8c09f;
+  background-color: var(--color-paper-200);
   background-image:
     linear-gradient(
       rgb(255 240 210 / 18%),
       rgb(100 65 35 / 10%)
     ),
-    url("./assets/Textures/Paper001_1K-JPG_Color.jpg");
+    url("./assets/Textures/Paper003_2K-JPG_Color.jpg");
 
   background-repeat: no-repeat, repeat;
   background-size: cover, 512px 512px;
@@ -255,15 +276,33 @@ html {
 
   pointer-events: none;
   mix-blend-mode: multiply;
-  opacity: 0.48;
+  opacity: 0;
 }
 
 @media (max-width: 639px) {
   .menu-stage {
     --menu-paper-width: 94%;
+    --menu-content-width: 78%;
+    --menu-header-width: 78%;
   }
 
   .menu-burn-detail {
-    opacity: 0.42;
+    opacity: 0;
   }
+}
+
+.menu-food-image {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 0;
+
+  width: 34vw;
+  height: 100dvh;
+
+  object-fit: cover;
+  object-position: 62% center;
+
+  pointer-events: none;
+  user-select: none;
 }
