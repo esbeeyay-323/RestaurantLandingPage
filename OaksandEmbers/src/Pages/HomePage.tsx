@@ -1,10 +1,9 @@
 import mainHero from "../assets/flame-grilled-ribeye.jpg"
-import MyDrawer from "../Components/Drawer"
+import { Brand } from "../Components/Brand"
+import { DesktopHeader, MobileHeader } from "../Components/Header"
 
-const navigationItems = ["Menu", "Reservations", "About", "Gallery", "Contact"]
+
 const heroLines = ["Fire.", "Flavour.", "Good Company."]
-
-type HeaderTone = "dark" | "paper"
 
 const actions = [
   { label: "Make a Reservation", variant: "ember" },
@@ -29,48 +28,6 @@ const buttonVariantClasses = {
     "focus-visible:outline-brass-400 active:bg-coal-800",
   ].join(" "),
 }
-
-const Brand = ({
-  className = "",
-  tone = "dark",
-}: {
-  className?: string
-  tone?: HeaderTone
-}) => (
-  <p
-    className={`font-display text-[clamp(1.4rem,1.75vw,3.5rem)] font-semibold uppercase tracking-[0.14em] ${tone === "paper" ? "text-ink-900" : "text-bone-50"} ${className}`}
-  >
-    Ember <span className="text-ember-500">&amp;</span> Oak
-  </p>
-)
-
-export const MobileHeader = ({ tone = "dark" }: { tone?: HeaderTone }) => (
-  <header className="flex w-full justify-end p-3 lg:hidden">
-    <MyDrawer tone={tone} />
-  </header>
-)
-
-export const DesktopHeader = ({ tone = "dark" }: { tone?: HeaderTone }) => (
-  <header
-    className={`hidden w-full grid-cols-[1fr_auto_1fr] items-center p-8 lg:grid ${tone === "paper" ? "bg-transparent" : "bg-coal-950"}`}
-  >
-    <Brand className="justify-self-start" tone={tone} />
-
-    <nav aria-label="Primary navigation">
-      <ul
-        className={`flex gap-[clamp(1.25rem,1.5vw,2.5rem)] font-body text-[clamp(0.75rem,0.65vw,1.25rem)] font-medium uppercase tracking-[0.06em] ${tone === "paper" ? "text-ink-900" : "text-bone-50"}`}
-      >
-        {navigationItems.map((item) => (
-          <li key={item}>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </nav>
-
-    <div aria-hidden="true" />
-  </header>
-)
 
 const HeroHeading = () => (
   <h1 className="mt-7 flex flex-col items-center font-display text-[clamp(2.35rem,12.5vw,3.5rem)] font-medium leading-[0.9] tracking-tight text-bone-50 md:text-[72px] lg:text-[clamp(6rem,5.5vw,9rem)]">
@@ -98,8 +55,11 @@ const ActionButtons = ({ className }: { className: string }) => (
 
 const HomePage = () => (
   <main className="flex min-h-dvh flex-col items-center bg-coal-950">
-    <MobileHeader />
-    <DesktopHeader />
+    <MobileHeader
+      className="flex w-full justify-end p-3 lg:hidden"
+      DrawerClassName="brightness-0 invert"
+    />
+    <DesktopHeader NavClassName="text-bone-50" className = "hidden w-full grid-cols-[1fr_auto_1fr] items-center p-8 lg:grid bg-coal-950" />
 
     <section className="flex w-full flex-col items-start gap-6 px-4 pb-3 pt-1 sm:px-6 lg:flex-1 lg:flex-row lg:items-center lg:justify-center">
       <div className="flex w-full flex-col items-center justify-center gap-6 text-center">

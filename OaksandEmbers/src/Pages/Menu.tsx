@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { menuItems, menuTabs } from "../Data/MenuItems";
-import { DesktopHeader, MobileHeader } from "./HomePage";
+import { DesktopHeader, MobileHeader } from "../Components/Header";
 import menuSteakImage from "../assets/menu-steak-dark.png"
 
 type ActiveCategory = (typeof menuTabs)[number]["id"];
@@ -29,8 +29,11 @@ function Menu() {
 
       <div className="menu-content">
         <div className="menu-header-shell">
-          <MobileHeader tone="paper" />
-          <DesktopHeader tone="paper" />
+          <MobileHeader
+            className="flex w-full justify-end p-3 lg:hidden"
+            DrawerClassName="brightness-0"
+          />
+          <DesktopHeader NavClassName="text-ink-900" className="hidden w-full grid-cols-[1fr_auto_1fr] items-center p-8 lg:grid bg-transparent" />
         </div>
 
         <div className="menu-body px-[clamp(1rem,3vw,4rem)] pb-[clamp(2rem,4vw,6rem)]">

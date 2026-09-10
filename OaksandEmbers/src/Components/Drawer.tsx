@@ -29,10 +29,10 @@ const Menu = [
 ]
 
 type MyDrawerProps = {
-  tone?: "dark" | "paper";
+  className: string;
 };
 
-const MyDrawer: React.FC<MyDrawerProps> = ({ tone = "dark" }) => {
+const MyDrawer: React.FC<MyDrawerProps> = ({ className }) => {
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {
@@ -52,7 +52,7 @@ const MyDrawer: React.FC<MyDrawerProps> = ({ tone = "dark" }) => {
         className="w-12.5 cursor-pointer"
       >
         <img
-          className={`w-full ${tone === "dark" ? "brightness-0 invert" : "brightness-0"}`}
+          className={`w-full md:max-lg:brightness-0 invert`}
           src={hamburger}
           alt=""
         />

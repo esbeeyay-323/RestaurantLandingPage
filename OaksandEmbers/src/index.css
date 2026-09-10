@@ -2,6 +2,9 @@
 @import "tailwindcss";
 
 @theme {
+
+  --breakpoint-md: 650px;
+
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Barlow", "Arial Narrow", sans-serif;
 
@@ -204,6 +207,41 @@ html {
   .hero-type-line {
     clip-path: none;
   }
+}
+
+.reservation-dark-panel {
+  --reservation-panel-base: #191612;
+  --reservation-panel-depth: #12110f;
+  --reservation-panel-warmth: #2a2119;
+  --reservation-panel-line: rgb(245 239 228 / 5%);
+  --reservation-panel-ember: rgb(184 67 46 / 48%);
+  --reservation-panel-ember-edge: rgb(184 67 46 / 18%);
+  --reservation-panel-brass: rgb(189 147 84 / 8%);
+
+  background-color: var(--reservation-panel-base);
+  background-image:
+    repeating-linear-gradient(
+      100deg,
+      transparent 0 28px,
+      var(--reservation-panel-line) 28px 29px
+    ),
+    radial-gradient(
+      ellipse at 16% 94%,
+      var(--reservation-panel-ember) 0%,
+      var(--reservation-panel-ember-edge) 24%,
+      transparent 52%
+    ),
+    radial-gradient(
+      ellipse at 88% 8%,
+      var(--reservation-panel-brass) 0%,
+      transparent 52%
+    ),
+    linear-gradient(
+      110deg,
+      var(--reservation-panel-depth) 0%,
+      var(--reservation-panel-warmth) 58%,
+      var(--reservation-panel-depth) 100%
+    );
 }
 
 .menu-stage {
