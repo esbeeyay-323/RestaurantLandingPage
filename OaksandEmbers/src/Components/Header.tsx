@@ -11,10 +11,12 @@ interface classNameProps  {
 interface MobileHeaderProps {
   className: string;
   DrawerClassName: string;
+  BrandClassName?: string;
 }
 
-export const MobileHeader = ({ className, DrawerClassName }: MobileHeaderProps) => (
+export const MobileHeader = ({ className, DrawerClassName, BrandClassName }: MobileHeaderProps) => (
   <header className={className}>
+    {BrandClassName && <Brand className={BrandClassName} />}
     <MyDrawer className={DrawerClassName} />
   </header>
 )

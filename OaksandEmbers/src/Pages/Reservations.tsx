@@ -4,25 +4,27 @@ import MyDrawer from "../Components/Drawer";
 import { DesktopHeader } from "../Components/Header";
 import TextArea from "antd/es/input/TextArea";
 
+
+
+
 function Reservations () {
 
     return (
         <>
         <main className="min-h-dvh flex flex-col w-full bg-white">
-            <header className="w-full items-center p-6 bg-[radial-gradient(ellipse_at_30%_85%,rgba(184,67,46,0.35),transparent_55%),
-            radial-gradient(ellipse_at_75%_15%,rgba(189,147,84,0.12),transparent_50%)] bg-[#1c1712] flex justify-between lg:hidden">
+            <header className="reservation-glass-header fixed inset-x-0 top-0 z-30 flex w-full items-center justify-between p-6 lg:hidden">
                     <Brand className="justify-self-start font-display text-[clamp(1.4rem,1.75vw,3.5rem)] 
                     font-semibold uppercase tracking-[0.14em] text-bone-50"/>
-                    <MyDrawer className={""}/>
+                    <MyDrawer className="brightness-0 invert"/>
                 </header>
-                <div className="hidden p-6 bg-black lg:flex">
+                <div className="reservation-glass-header fixed inset-x-0 top-0 z-30 hidden p-6 lg:flex">
                 <DesktopHeader NavClassName="text-bone-50" className = "hidden w-full grid-cols-[1fr_auto_1fr] items-center lg:grid"/>
                 </div>
 
             <div className="w-full flex flex-1 flex-col lg:flex-row">
 
-            <section className="reservation-dark-panel w-full p-6 lg:flex lg:items-center lg:justify-center">
-                <div className="w-full lg:flex lg:w-3/5 lg:flex-col lg:justify-center lg:gap-[clamp(2rem,1.5vw,5rem)]">
+            <section className="reservation-dark-panel w-full p-6 pt-30 lg:flex lg:items-start lg:justify-center lg:pt-28">
+                <div className="w-full lg:flex lg:w-3/5 lg:flex-col lg:gap-[clamp(2rem,1.5vw,5rem)]">
                 
                 <div>
                 <h1 className="w-full font-sans text-[clamp(0.75rem,calc(0.65rem+0.12vw),1.25rem)] uppercase tracking-[2.5px] text-[#b8432e] mb-4 lg:text-left">Reservations</h1>
@@ -76,10 +78,10 @@ function Reservations () {
 
 
 
-            <section className="w-full bg-[#F5EFE4] p-6 lg:flex lg:flex-col lg:justify-center lg:items-center">
-            <div className="w-full flex flex-col lg:w-3/5 lg:justify-center lg:items-center">
+            <section className="w-full bg-[#F5EFE4] p-6 lg:flex lg:flex-col lg:items-center lg:justify-start lg:pt-28">
+            <div className="w-full flex flex-col lg:w-3/5 lg:items-center">
                 <h1 className="w-full text-left font-serif font-medium text-[clamp(2rem,calc(1.5rem+1.5vw),8rem)] 
-                    leading-[1.08] text-[#2a2019] mt-6">
+                    leading-[1.08] text-[#2a2019] mt-6 lg:mt-0">
                 Book a table
                 </h1>
 

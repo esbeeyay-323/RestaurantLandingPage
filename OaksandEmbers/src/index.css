@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -7,6 +7,8 @@
 
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Barlow", "Arial Narrow", sans-serif;
+  --font-about-display: "Playfair Display", Georgia, serif;
+  --font-about-body: "Inter", system-ui, sans-serif;
 
   --color-coal-950: #0b0a08;
   --color-coal-900: #12100d;
@@ -244,11 +246,122 @@ html {
     );
 }
 
+.about-cta-panel {
+  background-color: var(--color-coal-900);
+  background-image:
+    repeating-linear-gradient(
+      100deg,
+      transparent 0 34px,
+      rgb(245 239 228 / 3.5%) 34px 35px
+    ),
+    radial-gradient(
+      ellipse at 55% 115%,
+      rgb(184 67 46 / 58%) 0%,
+      rgb(184 67 46 / 18%) 32%,
+      transparent 61%
+    ),
+    radial-gradient(
+      ellipse at 12% 4%,
+      rgb(189 147 84 / 10%) 0%,
+      transparent 52%
+    ),
+    linear-gradient(110deg, #17130f 0%, #251a14 55%, #171310 100%);
+}
+
+.about-hero-panel {
+  background-color: var(--color-coal-900);
+  background-image:
+    repeating-linear-gradient(
+      100deg,
+      transparent 0 34px,
+      rgb(245 239 228 / 3.5%) 34px 35px
+    ),
+    radial-gradient(
+      ellipse at 14% 112%,
+      rgb(184 67 46 / 48%) 0%,
+      rgb(184 67 46 / 16%) 32%,
+      transparent 62%
+    ),
+    radial-gradient(
+      ellipse at 76% 0%,
+      rgb(189 147 84 / 8%) 0%,
+      transparent 50%
+    ),
+    linear-gradient(110deg, #17130f 0%, #251a14 48%, #171310 100%);
+}
+
+.reservation-glass-header {
+  --reservation-header-glass: rgb(11 10 8 / 64%);
+  --reservation-header-warmth: rgb(184 67 46 / 8%);
+  --reservation-header-border: rgb(245 239 228 / 10%);
+  --reservation-header-shadow: rgb(11 10 8 / 24%);
+
+  border-bottom: 1px solid var(--reservation-header-border);
+  background:
+    linear-gradient(
+      110deg,
+      var(--reservation-header-warmth),
+      transparent 48%
+    ),
+    var(--reservation-header-glass);
+  box-shadow: 0 0.75rem 2.5rem var(--reservation-header-shadow);
+  -webkit-backdrop-filter: blur(1rem) saturate(120%);
+  backdrop-filter: blur(1rem) saturate(120%);
+}
+
+.navigation-drawer .ant-drawer-content-wrapper {
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 280ms ease !important;
+}
+
+.navigation-drawer .ant-drawer-mask {
+  transition: opacity 320ms ease !important;
+}
+
+.navigation-drawer .drawer-nav-item {
+  opacity: 0;
+  transform: translateX(0.75rem);
+  transition:
+    opacity 220ms ease,
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.navigation-drawer.ant-drawer-open .drawer-nav-item {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.navigation-drawer.ant-drawer-open .drawer-nav-item:nth-child(2) {
+  transition-delay: 45ms;
+}
+
+.navigation-drawer.ant-drawer-open .drawer-nav-item:nth-child(3) {
+  transition-delay: 90ms;
+}
+
+.navigation-drawer.ant-drawer-open .drawer-nav-item:nth-child(4) {
+  transition-delay: 135ms;
+}
+
+.navigation-drawer.ant-drawer-open .drawer-nav-item:nth-child(5) {
+  transition-delay: 180ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation-drawer .ant-drawer-content-wrapper,
+  .navigation-drawer .ant-drawer-mask,
+  .navigation-drawer .drawer-nav-item {
+    transition: none !important;
+  }
+}
+
 .menu-stage {
   --menu-paper-width: 96%;
   --menu-burn-width: 28%;
   --menu-content-width: 72%;
   --menu-header-width: 92%;
+  --menu-header-height: 4.625rem;
 
   position: relative;
   min-height: 100dvh;
@@ -269,6 +382,30 @@ html {
 
 .menu-body {
   width: var(--menu-content-width);
+  padding-top: var(--menu-header-height);
+}
+
+.menu-glass-header {
+  --menu-header-glass: rgb(216 192 159 / 44%);
+  --menu-header-highlight: rgb(245 239 228 / 16%);
+  --menu-header-border: rgb(43 33 24 / 16%);
+  --menu-header-shadow: rgb(43 33 24 / 14%);
+
+  border-bottom: 1px solid var(--menu-header-border);
+  background:
+    linear-gradient(
+      110deg,
+      var(--menu-header-highlight),
+      transparent 54%
+    ),
+    var(--menu-header-glass);
+  box-shadow: 0 0.75rem 2.5rem var(--menu-header-shadow);
+  -webkit-backdrop-filter: blur(1rem) saturate(112%);
+  backdrop-filter: blur(1rem) saturate(112%);
+}
+
+.menu-glass-header > p {
+  color: var(--color-ink-900);
 }
 
 .menu-paper {
@@ -326,6 +463,12 @@ html {
 
   .menu-burn-detail {
     opacity: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-stage {
+    --menu-header-height: 6.125rem;
   }
 }
 

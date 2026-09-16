@@ -30,10 +30,11 @@ function Menu() {
       <div className="menu-content">
         <div className="menu-header-shell">
           <MobileHeader
-            className="flex w-full justify-end p-3 lg:hidden"
+            className="menu-glass-header fixed inset-x-0 top-0 z-30 flex w-full items-center justify-between p-3 lg:hidden"
             DrawerClassName="brightness-0"
+            BrandClassName="font-display text-[clamp(1.2rem,4vw,1.6rem)] font-semibold uppercase tracking-[0.14em] text-ink-900"
           />
-          <DesktopHeader NavClassName="text-ink-900" className="hidden w-full grid-cols-[1fr_auto_1fr] items-center p-8 lg:grid bg-transparent" />
+          <DesktopHeader NavClassName="text-ink-900" className="menu-glass-header fixed inset-x-0 top-0 z-30 hidden w-full grid-cols-[1fr_auto_1fr] items-center p-8 lg:grid" />
         </div>
 
         <div className="menu-body px-[clamp(1rem,3vw,4rem)] pb-[clamp(2rem,4vw,6rem)]">
@@ -46,7 +47,7 @@ function Menu() {
               From the Fire
             </h1>
 
-            <p className="mt-5 max-w-[48rem] font-body text-[clamp(0.875rem,0.85vw,1.5rem)] leading-[1.7] text-ink-600">
+            <p className="mt-5 max-w-3xl font-body text-[clamp(0.875rem,0.85vw,1.5rem)] leading-[1.7] text-ink-600">
               Honest ingredients and plates made for sharing.
             </p>
           </header>

@@ -1,0 +1,184 @@
+import { Brand } from "../Components/Brand";
+import MyDrawer from "../Components/Drawer";
+import { DesktopHeader } from "../Components/Header";
+import aboutOriginStory from "../assets/about-origin-story.png";
+import { teamMembers } from "../Data/WebData";
+
+const values = [
+  {
+    title: "Live Fire",
+    description:
+      "Everything on the menu passes over charcoal or wood at some point. No shortcuts, no gas flame standing in for smoke.",
+  },
+  {
+    title: "Local First",
+    description:
+      "Vegetables from Madina market, fish off the Jamestown boats, spices ground the same morning they're used.",
+  },
+  {
+    title: "Long Tables",
+    description:
+      "Portions are built for sharing. Pull up a chair — we'll bring another one.",
+  },
+];
+
+
+const About = () => {
+   return (
+    <>
+    <main className="min-h-dvh flex flex-col w-full bg-white max-w font-about-body">
+        
+         <header className="reservation-glass-header fixed inset-x-0 top-0 z-30 flex w-full items-center justify-between p-6 h-24.5 lg:hidden">
+                    <Brand className="justify-self-start font-display text-[clamp(1.4rem,1.75vw,3.5rem)] 
+                    font-semibold uppercase tracking-[0.14em] text-bone-50"/>
+                    <MyDrawer className="brightness-0 invert"/>
+                </header>
+                <div className="reservation-glass-header fixed inset-x-0 top-0 z-30 hidden p-6 lg:flex">
+                <DesktopHeader NavClassName="text-bone-50" className = "hidden w-full grid-cols-[1fr_auto_1fr] items-center lg:grid"/>
+                </div>
+
+            <section className="about-hero-panel pt-24.5 w-full items-center justify-center flex flex-col  gap-6">
+                    <div className="p-15 w-full max-w-160 lg:p-24">
+                        <p className="text-center font-about-body text-[12px] uppercase tracking-[2.5px] text-[#b8432e]">our story</p>
+                        <h1 className="text-center font-about-display text-[clamp(38px,5vw,58px)] font-medium leading-[1.1] text-[#f5efe4]">Built Around a Fire</h1>
+                        <p className="text-center font-about-body text-[17px] leading-[1.65] text-[#a99d8b]"> Ember & Oak started with one steel-drum grill, one family recipe, and a belief that the best food comes from patience, not shortcuts.</p>
+                    </div>
+            </section>
+
+
+            <section className="bg-[#F5EFE4] w-full flex flex-col gap-6">
+                    <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 p-6 lg:flex-row lg:items-center lg:justify-center lg:gap-12 lg:p-24">
+                       <figure className="relative mx-auto aspect-3/2 w-full max-w-125 overflow-hidden lg:mx-0 lg:aspect-4/5 lg:max-w-108.5 lg:shrink-0">
+                            <img
+                                 src={aboutOriginStory}
+                                 alt="Chef tending ribs over a steel-drum charcoal grill"
+                                 className="h-full w-full object-cover object-center"
+                            />
+                            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-black/65 to-transparent" />
+                            <figcaption className="absolute bottom-5 left-5 font-about-body text-[13px] italic text-[#a99d8b]">
+                                Osu, 2015 — the original drum grill
+                            </figcaption>
+                       </figure>
+                       <div className="mx-auto w-full max-w-125 space-y-5 lg:mx-0 lg:max-w-[52ch]">
+                            <h1 className="max-w-[24ch] font-about-display text-[32px] font-medium leading-[1.2] text-[#2a2019] lg:max-w-[16ch]">
+                                From One Drum Grill to a Neighbourhood Table
+                            </h1>
+                            <p className="max-w-[52ch] text-left font-about-body text-[16px] leading-[1.7] text-[#7d7264]">
+                                In 2015, Chef Kwame Owusu set up a single charcoal 
+                                grill outside his family's compound in Osu, 
+                                cooking pepper-marinated ribs the way his grandmother taught him — slow, 
+                                over open coals, with nothing to hide behind.
+                                Word spread faster than the smoke did. 
+                                Within a year, the drum grill became a kitchen, 
+                                the kitchen became a dining room, and the neighbours who 
+                                used to queue on the sidewalk now have a table waiting for them.
+                            </p>
+                       </div>
+                    </div>
+            </section>
+
+            <section className="w-full p-6 bg-[#17130f]  lg:py-24">
+                <h1 className="mb-14 pt-6 text-center font-about-display text-[32px] font-medium text-[#f5efe4] lg:pt-0">How we cook</h1>
+
+                <div className=" mx-auto grid w-full max-w-6xl grid-cols-1
+                    border-y border-[#3B362F]
+                    divide-y divide-[#3B362F]
+
+                    lg:grid-cols-3
+                    lg:border-b-0
+                    lg:divide-x lg:divide-y-0">
+                    {values.map(value => (
+                        <article className="py-7 lg:px-8 lg:py-8" key={value.title}>
+                            <h1 className="mt-7 font-about-display text-[19px] font-medium text-[#bd9354]">{value.title}</h1>
+
+                            <p className="w-full font-about-body text-[14.5px] leading-[1.7] text-[#a99d8b]">{value.description}</p>
+                        </article>
+                    ))}
+                </div>
+
+                <div className="my-24 w-full flex justify-center items-center">
+                    <p className="w-full text-center flex flex-col gap-2">
+                        <span className="font-about-display text-[clamp(22px,2.6vw,30px)] font-normal italic leading-[1.4] text-[#f5efe4]">"A grill doesn't rush. Neither do we."</span>
+                        <span className="font-about-body text-[13px] tracking-[0.6px] text-[#a99d8b]">Kwame Owusu, Founder & Head Chef</span>
+                    </p>
+                </div>
+
+            </section>
+
+            <section className="w-full p-6 bg-[#F5EFE4]  lg:py-24">
+                  <h1 className="mb-14 pt-6 text-center font-about-display text-[32px] font-medium text-[#2a2019] lg:pt-0">Who's behind the Grill</h1>
+
+                  <div className="w-full grid grid-cols-1 place-items-center gap-6 lg:grid-cols-3">
+                    {
+                        teamMembers.map(member => (
+                            <>
+                            <div key={member.initial} className="flex flex-col justify-center items-center gap-6">
+                                <div className="h-20 w-20 rounded-[999px] flex justify-center items-center border border-[#b8432e]">
+                                        <span className="font-about-display text-[22px] uppercase text-[#b8432e]">{member.initial}</span>
+                                </div>
+
+                                    <h1 className="flex flex-col justify-center items-center gap-0.5">
+                                        <span className="font-about-display text-[19px] font-medium text-[#2a2019]">{member.name}</span>
+                                        <span className="font-about-body text-[12px] uppercase tracking-[1px] text-[#7d7264]">{member.role}</span>
+                                    </h1>
+                            </div>
+                            </>
+                        ))
+                    }
+
+                 </div> 
+            </section>
+
+                        <section className="about-cta-panel w-full px-6 py-24 lg:py-26">
+                            
+                        <div className="mx-auto flex w-full max-w-3xl flex-col items-center justify-center gap-5 text-center">
+                            <h1 className="max-w-[13ch] font-about-display text-[clamp(30px,4vw,44px)] font-medium text-[#f5efe4] lg:max-w-none">
+                                Come Taste It Yourself
+                            </h1>
+
+                            <p className="max-w-[31ch] font-about-body text-[16px] text-[#a99d8b] lg:max-w-none">
+                                Best enjoyed with people you like and time to spare.
+                            </p>
+
+                            <div className="mt-4 grid w-full max-w-48 grid-cols-1 gap-4 md:max-w-96 md:grid-cols-2 md:gap-4">
+                                <a
+                                    href="#menu"
+                                    className="flex h-12 items-center justify-center border border-[#bd9354] px-5 font-about-body text-[12px] font-medium uppercase tracking-[1.6px] text-[#bd9354] transition-colors hover:bg-[#bd9354]/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bd9354]"
+                                >
+                                    View the menu
+                                </a>
+                                <a
+                                    href="#reservations"
+                                    className="flex h-12 items-center justify-center border border-[#c74431] bg-[#c74431] px-5 font-about-body text-[12px] font-semibold uppercase tracking-[1.6px] text-[#f5efe4] transition-colors hover:border-[#b8432e] hover:bg-[#b8432e] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e65a3a]"
+                                >
+                                    Reserve a table
+                                </a>
+                            </div>
+                        </div>
+
+                        </section>
+
+                        <footer className="w-full border-t border-[#3b362f] bg-[#12100d] px-6 py-9 font-about-body text-[#a99d8b] lg:py-8">
+                            <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-4 text-center">
+                                <address className="max-w-[30ch] text-[13px] not-italic leading-[1.35] lg:max-w-none">
+                                    Ember &amp; Oak — 12 Ember Lane, Osu, Accra — +233 20 000 0000
+                                </address>
+
+                                <nav aria-label="Footer navigation">
+                                    <ul className="flex max-w-70 flex-wrap items-center justify-center gap-x-7 gap-y-5 text-[12px] uppercase tracking-[1px] lg:max-w-none lg:gap-x-7 lg:gap-y-0">
+                                        <li><a className="transition-colors hover:text-[#f5efe4] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bd9354]" href="#menu">Menu</a></li>
+                                        <li><a className="transition-colors hover:text-[#f5efe4] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bd9354]" href="#reservations">Reservations</a></li>
+                                        <li><a className="transition-colors hover:text-[#f5efe4] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bd9354]" href="#about">About</a></li>
+                                        <li><a className="transition-colors hover:text-[#f5efe4] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bd9354]" href="#gallery">Gallery</a></li>
+                                        <li><a className="transition-colors hover:text-[#f5efe4] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bd9354]" href="#contact">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </footer>
+
+    </main>
+    </>
+   )
+}
+
+export default About;
