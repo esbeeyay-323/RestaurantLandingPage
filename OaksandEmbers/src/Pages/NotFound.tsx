@@ -9,7 +9,7 @@ const NotFound = () => {
 
   const goBack = () => {
     if (location.key === "default") {
-    navigate("/", { replace: true });
+    navigate("/", { replace: true, viewTransition: true });
   } else {
     navigate(-1);
   }

@@ -43,11 +43,11 @@ function Reservations () {
         <main className="dark-surface min-h-dvh flex flex-col w-full">
             <div className="w-full flex flex-1 flex-col lg:flex-row">
 
-            <section className="reservation-dark-panel w-full p-6 pt-30 lg:flex lg:items-start lg:justify-center lg:pt-32 lg:pb-4">
+            <section className="reservation-dark-panel w-full p-6 pt-30 text-ash-300 lg:flex lg:items-start lg:justify-center lg:pt-32 lg:pb-4">
                 <div className="w-full lg:flex lg:w-3/5 lg:flex-col lg:gap-4">
                 
                 <div>
-                <p className="w-full font-sans text-[clamp(0.75rem,calc(0.65rem+0.12vw),1.25rem)] uppercase tracking-[2.5px] text-[#b8432e] mb-4 lg:text-left">Reservations</p>
+                <p className="mb-4 w-full font-body text-[clamp(0.75rem,calc(0.65rem+0.12vw),1.25rem)] font-semibold uppercase tracking-[2.5px] text-ember-300 lg:text-left">Reservations</p>
                 
                 <h1 className="w-full font-serif font-medium text-[clamp(2.25rem,calc(1.5rem+1.5vw),8rem)] leading-[1.08] text-[#f5efe4] lg:mx-auto">
                 Reserve Your Table
@@ -105,13 +105,16 @@ function Reservations () {
                 Book a table
                 </h2>
 
-                <p className="w-full text-left font-sans text-[clamp(1rem,calc(0.8rem+0.25vw),2rem)] leading-[1.6] text-[#7d7264] mb-8 mt-2 lg:mb-3 lg:mt-1">
+                <p className="mb-8 mt-2 w-full text-left font-body text-[clamp(1rem,calc(0.8rem+0.25vw),2rem)] leading-[1.6] text-ink-600 lg:mb-3 lg:mt-1">
                 Fill in your details and we'll confirm by phone.
                 </p>
 
                
             <ConfigProvider 
             theme={{
+                    token: {
+                        colorError: "#6F1F17",
+                    },
                     components: {
 
                 Input: {
@@ -119,7 +122,7 @@ function Reservations () {
                     colorBorder: "rgba(42, 32, 25, 0.3)",
                     colorPrimary: "#B8432E",
                     colorText: "#2A2019",
-                    colorTextPlaceholder: "#7D7264",
+                    colorTextPlaceholder: "#4A382A",
                     borderRadius: 0,
                 },
                 DatePicker : {
@@ -127,7 +130,7 @@ function Reservations () {
                     colorBorder: "rgba(42, 32, 25, 0.3)",
                     colorPrimary: "#B8432E",
                     colorText: "#2A2019",
-                    colorTextPlaceholder: "#7D7264",
+                    colorTextPlaceholder: "#4A382A",
                     borderRadius: 0,
                 },
                 Select :{
@@ -135,7 +138,7 @@ function Reservations () {
                     colorBorder: "rgba(42, 32, 25, 0.3)",
                     colorPrimary: "#B8432E",
                     colorText: "#2A2019",
-                    colorTextPlaceholder: "#7D7264",
+                    colorTextPlaceholder: "#4A382A",
                     borderRadius: 0,
                 },
                 Button: {
@@ -166,7 +169,7 @@ function Reservations () {
                     <div className="w-full flex flex-col gap-2 lg:gap-0">
                         <Form.Item
                             name="fullName"
-                            label={<span className="uppercase text-[12px] text-[#7d7264]">full name</span>}
+                            label={<span className="text-[12px] font-medium uppercase text-ink-600">full name</span>}
                             layout="vertical"
                             rules={[
                                 { required: true, whitespace: true, message: "Please enter your full name." },
@@ -177,7 +180,7 @@ function Reservations () {
                         </Form.Item>
                         <Form.Item
                             name="phone"
-                            label={<span className="uppercase text-[12px] text-[#7d7264]">phone number</span>}
+                            label={<span className="text-[12px] font-medium uppercase text-ink-600">phone number</span>}
                             layout="vertical"
                             rules={[
                                 { required: true, message: "Please enter a phone number we can reach you on." },
@@ -191,7 +194,7 @@ function Reservations () {
                         </Form.Item>
                         <Form.Item
                             name="email"
-                            label={<span className="uppercase text-[12px] text-[#7d7264]">email address</span>}
+                            label={<span className="text-[12px] font-medium uppercase text-ink-600">email address</span>}
                             layout="vertical"
                             rules={[
                                 { required: true, message: "Please enter your email address." },
@@ -202,7 +205,7 @@ function Reservations () {
                         </Form.Item>
                         <Form.Item
                             name="date"
-                            label={<span className="uppercase text-[12px] text-[#7d7264]">date</span>}
+                            label={<span className="text-[12px] font-medium uppercase text-ink-600">date</span>}
                             layout="vertical"
                             rules={[{ required: true, message: "Please choose a date for your reservation." }]}
                         >
@@ -210,7 +213,7 @@ function Reservations () {
                         </Form.Item>
                         <Form.Item
                             name="time"
-                            label={<span className="uppercase text-[12px] text-[#7d7264]">time</span>}
+                            label={<span className="text-[12px] font-medium uppercase text-ink-600">time</span>}
                             layout="vertical"
                             rules={[{ required: true, message: "Please choose a time for your reservation." }]}
                         >
@@ -218,7 +221,7 @@ function Reservations () {
                         </Form.Item>
                         <Form.Item
                             name="partySize"
-                            label={<span className="uppercase text-[12px] text-[#7d7264]">party size</span>}
+                            label={<span className="text-[12px] font-medium uppercase text-ink-600">party size</span>}
                             layout="vertical"
                             rules={[{ required: true, message: "Please tell us how many guests will be joining you." }]}
                         >
@@ -226,7 +229,7 @@ function Reservations () {
                         </Form.Item>
                         <Form.Item
                             name="notes"
-                            label={<span className="uppercase text-[12px] text-[#7d7264]">notes</span>}
+                            label={<span className="text-[12px] font-medium uppercase text-ink-600">notes</span>}
                             layout="vertical"
                             rules={[{ max: 500, message: "Please keep special requests under 500 characters." }]}
                         >

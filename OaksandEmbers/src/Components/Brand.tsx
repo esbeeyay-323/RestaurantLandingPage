@@ -7,7 +7,7 @@ export const Brand = ({className}: {
   <NavLink to="/" viewTransition
     className={`${className}`}
   >
-    Ember <span className="text-ember-500">&amp;</span> Oak
+    Ember <span className="text-ember-300">&amp;</span> Oak
   </NavLink>
 )
 

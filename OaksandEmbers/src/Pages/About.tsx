@@ -27,7 +27,7 @@ const About = () => {
     <main className="dark-surface-solid min-h-dvh flex flex-col w-full max-w font-about-body">
             <section className="about-hero-panel pt-24.5 w-full items-center justify-center flex flex-col  gap-6">
                     <div className="p-15 w-full max-w-160 lg:p-24">
-                        <p className="text-center font-about-body text-[12px] uppercase tracking-[2.5px] text-[#b8432e]">our story</p>
+                        <p className="text-center font-about-body text-[12px] font-semibold uppercase tracking-[2.5px] text-ember-300">our story</p>
                         <h1 className="text-center font-about-display text-[clamp(38px,5vw,58px)] font-medium leading-[1.1] text-[#f5efe4]">Built Around a Fire</h1>
                         <p className="text-center font-about-body text-[17px] leading-[1.65] text-[#a99d8b]"> Ember & Oak started with one steel-drum grill, one family recipe, and a belief that the best food comes from patience, not shortcuts.</p>
                     </div>
@@ -47,7 +47,7 @@ const About = () => {
                                  className="h-full w-full object-cover object-center"
                             />
                             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-linear-to-t from-black/65 to-transparent" />
-                            <figcaption className="absolute bottom-5 left-5 font-about-body text-[13px] italic text-[#a99d8b]">
+                            <figcaption className="absolute bottom-5 left-5 font-about-body text-[13px] italic text-bone-50">
                                 Osu, 2015 — the original drum grill
                             </figcaption>
                        </figure>
@@ -55,7 +55,7 @@ const About = () => {
                             <h2 className="max-w-[24ch] font-about-display text-[32px] font-medium leading-[1.2] text-[#2a2019] lg:max-w-[16ch]">
                                 From One Drum Grill to a Neighbourhood Table
                             </h2>
-                            <p className="max-w-[52ch] text-left font-about-body text-[16px] leading-[1.7] text-[#7d7264]">
+                            <p className="max-w-[52ch] text-left font-about-body text-[16px] leading-[1.7] text-ink-600">
                                 In 2015, Chef Kwame Owusu set up a single charcoal 
                                 grill outside his family's compound in Osu, 
                                 cooking pepper-marinated ribs the way his grandmother taught him — slow, 
@@ -104,13 +104,13 @@ const About = () => {
                     {
                         teamMembers.map(member => (
                             <div key={member.initial} className="flex flex-col justify-center items-center gap-6">
-                                <div className="h-20 w-20 rounded-[999px] flex justify-center items-center border border-[#b8432e]">
-                                        <span className="font-about-display text-[22px] uppercase text-[#b8432e]">{member.initial}</span>
+                                <div className="h-20 w-20 rounded-[999px] flex justify-center items-center border border-ember-600">
+                                        <span className="font-about-display text-[22px] uppercase text-ember-600">{member.initial}</span>
                                 </div>
 
                                     <h3 className="flex flex-col justify-center items-center gap-0.5">
                                         <span className="font-about-display text-[19px] font-medium text-[#2a2019]">{member.name}</span>
-                                        <span className="font-about-body text-[12px] uppercase tracking-[1px] text-[#7d7264]">{member.role}</span>
+                                        <span className="font-about-body text-[12px] font-medium uppercase tracking-[1px] text-ink-600">{member.role}</span>
                                     </h3>
                             </div>
                         ))
@@ -141,7 +141,7 @@ const About = () => {
                                 <Link
                                     to="/reservations"
                                     viewTransition
-                                    className="flex h-12 items-center justify-center border border-[#c74431] bg-[#c74431] px-5 font-about-body text-[12px] font-semibold uppercase tracking-[1.6px] text-[#f5efe4] transition-colors hover:border-[#b8432e] hover:bg-[#b8432e] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e65a3a]"
+                                    className="flex h-12 items-center justify-center border border-[#b8432e] bg-[#b8432e] px-5 font-about-body text-[12px] font-semibold uppercase tracking-[1.6px] text-[#f5efe4] transition-colors hover:border-[#a63828] hover:bg-[#a63828] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e65a3a]"
                                 >
                                     Reserve a table
                                 </Link>

@@ -22,7 +22,7 @@ const contactTheme = {
   token: {
     colorPrimary: "#b8432e",
     colorText: "#2b2118",
-    colorTextPlaceholder: "#765f4a",
+    colorTextPlaceholder: "#4a382a",
     colorBorder: "rgba(43, 33, 24, 0.32)",
     borderRadius: 0,
     boxShadow: "none",
@@ -36,7 +36,7 @@ const contactTheme = {
       activeShadow: "none",
       colorBgContainer: "transparent",
       hoverBg: "transparent",
-      hoverBorderColor: "#765f4a",
+      hoverBorderColor: "#4a382a",
     },
     Button: {
       defaultBg: "#b8432e",
