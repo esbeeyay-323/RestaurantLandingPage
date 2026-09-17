@@ -26,7 +26,7 @@ export const DesktopHeader = ({className, NavClassName}:classNameProps) => (
     className={`${className}`}
   >
     <Brand className="justify-self-start font-display text-[clamp(1.4rem,1.75vw,3.5rem)] 
-    font-semibold uppercase tracking-[0.14em] text-bone-50" />
+    font-medium uppercase tracking-[0.14em] text-bone-50" />
 
     <nav aria-label="Primary navigation">
       <ul

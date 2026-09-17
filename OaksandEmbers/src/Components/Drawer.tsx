@@ -99,15 +99,15 @@ const MyDrawer: React.FC<MyDrawerProps> = ({ className }) => {
         rootStyle={{ top: drawerTop }}
         styles={{
           mask: {
-            backgroundColor: "rgba(11, 10, 8, 0.38)",
+            backgroundColor: "rgba(24, 21, 18, 0.38)",
             backdropFilter: "blur(2px)",
           },
           wrapper: {
-            boxShadow: "-18px 0 48px rgba(11, 10, 8, 0.28)",
+            boxShadow: "-18px 0 48px rgba(24, 21, 18, 0.28)",
           },
           section: {
             borderLeft: "1px solid rgba(200, 155, 82, 0.2)",
-            background: "rgba(11, 10, 8, 0.9)",
+            background: "rgba(24, 21, 18, 0.9)",
             backdropFilter: "blur(18px) saturate(115%)",
           },
           body: { margin: 0, padding: 0, border: "none", background: "transparent" },

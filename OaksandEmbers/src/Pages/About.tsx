@@ -3,6 +3,7 @@ import MyDrawer from "../Components/Drawer";
 import { DesktopHeader } from "../Components/Header";
 import aboutOriginStory from "../assets/about-origin-story.png";
 import { teamMembers } from "../Data/WebData";
+import { SiteFooter } from "../Components/SiteFooter";
 
 const values = [
   {
@@ -26,11 +27,11 @@ const values = [
 const About = () => {
    return (
     <>
-    <main className="min-h-dvh flex flex-col w-full bg-white max-w font-about-body">
+    <main className="dark-surface-solid min-h-dvh flex flex-col w-full max-w font-about-body">
         
          <header className="reservation-glass-header fixed inset-x-0 top-0 z-30 flex w-full items-center justify-between p-6 h-24.5 lg:hidden">
                     <Brand className="justify-self-start font-display text-[clamp(1.4rem,1.75vw,3.5rem)] 
-                    font-semibold uppercase tracking-[0.14em] text-bone-50"/>
+                    font-medium uppercase tracking-[0.14em] text-bone-50"/>
                     <MyDrawer className="brightness-0 invert"/>
                 </header>
                 <div className="reservation-glass-header fixed inset-x-0 top-0 z-30 hidden p-6 lg:flex">
@@ -46,7 +47,7 @@ const About = () => {
             </section>
 
 
-            <section className="bg-[#F5EFE4] w-full flex flex-col gap-6">
+            <section className="paper-surface w-full flex flex-col gap-6">
                     <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 p-6 lg:flex-row lg:items-center lg:justify-center lg:gap-12 lg:p-24">
                        <figure className="relative mx-auto aspect-3/2 w-full max-w-125 overflow-hidden lg:mx-0 lg:aspect-4/5 lg:max-w-108.5 lg:shrink-0">
                             <img
@@ -77,7 +78,7 @@ const About = () => {
                     </div>
             </section>
 
-            <section className="w-full p-6 bg-[#17130f]  lg:py-24">
+            <section className="dark-surface-solid w-full p-6 lg:py-24">
                 <h1 className="mb-14 pt-6 text-center font-about-display text-[32px] font-medium text-[#f5efe4] lg:pt-0">How we cook</h1>
 
                 <div className=" mx-auto grid w-full max-w-6xl grid-cols-1
@@ -105,7 +106,7 @@ const About = () => {
 
             </section>
 
-            <section className="w-full p-6 bg-[#F5EFE4]  lg:py-24">
+            <section className="paper-surface w-full p-6 lg:py-24">
                   <h1 className="mb-14 pt-6 text-center font-about-display text-[32px] font-medium text-[#2a2019] lg:pt-0">Who's behind the Grill</h1>
 
                   <div className="w-full grid grid-cols-1 place-items-center gap-6 lg:grid-cols-3">
@@ -158,23 +159,7 @@ const About = () => {
 
                         </section>
 
-                        <footer className="w-full border-t border-[#3b362f] bg-[#12100d] px-6 py-9 font-about-body text-[#a99d8b] lg:py-8">
-                            <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-center gap-4 text-center">
-                                <address className="max-w-[30ch] text-[13px] not-italic leading-[1.35] lg:max-w-none">
-                                    Ember &amp; Oak — 12 Ember Lane, Osu, Accra — +233 20 000 0000
-                                </address>
-
-                                <nav aria-label="Footer navigation">
-                                    <ul className="flex max-w-70 flex-wrap items-center justify-center gap-x-7 gap-y-5 text-[12px] uppercase tracking-[1px] lg:max-w-none lg:gap-x-7 lg:gap-y-0">
-                                        <li><a className="transition-colors hover:text-[#f5efe4] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bd9354]" href="#menu">Menu</a></li>
-                                        <li><a className="transition-colors hover:text-[#f5efe4] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bd9354]" href="#reservations">Reservations</a></li>
-                                        <li><a className="transition-colors hover:text-[#f5efe4] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bd9354]" href="#about">About</a></li>
-                                        <li><a className="transition-colors hover:text-[#f5efe4] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bd9354]" href="#gallery">Gallery</a></li>
-                                        <li><a className="transition-colors hover:text-[#f5efe4] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#bd9354]" href="#contact">Contact</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </footer>
+                        <SiteFooter />
 
     </main>
     </>

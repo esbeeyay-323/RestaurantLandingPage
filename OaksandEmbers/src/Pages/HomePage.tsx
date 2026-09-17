@@ -54,12 +54,12 @@ const ActionButtons = ({ className }: { className: string }) => (
 )
 
 const HomePage = () => (
-  <main className="flex min-h-dvh flex-col items-center bg-coal-950">
+  <main className="dark-surface flex min-h-dvh flex-col items-center">
     <MobileHeader
       className="flex w-full justify-end p-3 lg:hidden"
       DrawerClassName="brightness-0 invert"
     />
-    <DesktopHeader NavClassName="text-bone-50" className = "hidden w-full grid-cols-[1fr_auto_1fr] items-center p-8 lg:grid bg-coal-950" />
+    <DesktopHeader NavClassName="text-bone-50" className = "dark-surface hidden w-full grid-cols-[1fr_auto_1fr] items-center p-8 lg:grid" />
 
     <section className="flex w-full flex-col items-start gap-6 px-4 pb-3 pt-1 sm:px-6 lg:flex-1 lg:flex-row lg:items-center lg:justify-center">
       <div className="flex w-full flex-col items-center justify-center gap-6 text-center">

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { menuItems, menuTabs } from "../Data/MenuItems";
 import { DesktopHeader, MobileHeader } from "../Components/Header";
 import menuSteakImage from "../assets/menu-steak-dark.png"
+import { SiteFooter } from "../Components/SiteFooter";
 
 type ActiveCategory = (typeof menuTabs)[number]["id"];
 
@@ -16,7 +17,7 @@ function Menu() {
       : categoryTabs.filter((tab) => tab.id === activeCategory);
 
   return (
-    <main className="menu-stage">
+    <main className="menu-stage dark-surface">
         <img
             className="menu-food-image"
             src={menuSteakImage}
@@ -32,7 +33,7 @@ function Menu() {
           <MobileHeader
             className="menu-glass-header fixed inset-x-0 top-0 z-30 flex w-full items-center justify-between p-3 lg:hidden"
             DrawerClassName="brightness-0"
-            BrandClassName="font-display text-[clamp(1.2rem,4vw,1.6rem)] font-semibold uppercase tracking-[0.14em] text-ink-900"
+            BrandClassName="font-display text-[clamp(1.2rem,4vw,1.6rem)] font-medium uppercase tracking-[0.14em] text-ink-900"
           />
           <DesktopHeader NavClassName="text-ink-900" className="menu-glass-header fixed inset-x-0 top-0 z-30 hidden w-full grid-cols-[1fr_auto_1fr] items-center p-8 lg:grid" />
         </div>
@@ -133,6 +134,7 @@ function Menu() {
           </p>
         </div>
       </div>
+      <SiteFooter />
     </main>
   );
 }
