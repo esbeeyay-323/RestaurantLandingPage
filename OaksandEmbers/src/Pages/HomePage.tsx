@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import mainHero from "../assets/flame-grilled-ribeye.jpg"
 import { Brand } from "../Components/Brand"
 import { DesktopHeader, MobileHeader } from "../Components/Header"
@@ -6,15 +7,15 @@ import { DesktopHeader, MobileHeader } from "../Components/Header"
 const heroLines = ["Fire.", "Flavour.", "Good Company."]
 
 const actions = [
-  { label: "Make a Reservation", variant: "ember" },
-  { label: "Explore the Menu", variant: "brass" },
+  { label: "Make a Reservation", variant: "ember" , to:"/reservations"},
+  { label: "Explore the Menu", variant: "brass", to:"/menu" },
 ] as const
 
 const buttonBaseClasses = [
   "button-breathe h-14 w-full cursor-pointer border px-6",
   "font-body text-[13px] font-semibold uppercase tracking-[0.14em]",
   "transition-colors duration-200 focus-visible:outline-2",
-  "focus-visible:outline-offset-4 md:h-13",
+  "focus-visible:outline-offset-4 md:h-13 flex items-center justify-center",
 ].join(" ")
 
 const buttonVariantClasses = {
@@ -30,7 +31,7 @@ const buttonVariantClasses = {
 }
 
 const HeroHeading = () => (
-  <h1 className="mt-7 flex flex-col items-center font-display text-[clamp(2.35rem,12.5vw,3.5rem)] font-medium leading-[0.9] tracking-tight text-bone-50 md:text-[72px] lg:text-[clamp(6rem,5.5vw,9rem)]">
+  <h1 className="mt-7 flex flex-col items-center font-display text-[clamp(1.9rem,9vw,2.75rem)] font-medium leading-[0.9] tracking-tight text-bone-50 md:text-[72px] lg:text-[clamp(6rem,5.5vw,9rem)]">
     {heroLines.map((line) => (
       <span className="hero-type-line" key={line}>
         {line}
@@ -41,25 +42,27 @@ const HeroHeading = () => (
 
 const ActionButtons = ({ className }: { className: string }) => (
   <div className={className}>
-    {actions.map(({ label, variant }) => (
-      <button
+    {actions.map(({ label, to, variant }) => (
+      <Link 
+        to={to}
+        viewTransition
         key={label}
         type="button"
         className={`${buttonBaseClasses} ${buttonVariantClasses[variant]}`}
       >
         {label}
-      </button>
+      </Link>
     ))}
   </div>
 )
 
 const HomePage = () => (
-  <main className="dark-surface flex min-h-dvh flex-col items-center">
+  <main className="homepage-hero flex min-h-dvh flex-col items-center">
     <MobileHeader
       className="flex w-full justify-end p-3 lg:hidden"
       DrawerClassName="brightness-0 invert"
     />
-    <DesktopHeader NavClassName="text-bone-50" className = "dark-surface hidden w-full grid-cols-[1fr_auto_1fr] items-center p-8 lg:grid" />
+    <DesktopHeader NavClassName="text-bone-50" className = "hidden w-full grid-cols-[1fr_auto_1fr] items-center p-8 lg:grid" />
 
     <section className="flex w-full flex-col items-start gap-6 px-4 pb-3 pt-1 sm:px-6 lg:flex-1 lg:flex-row lg:items-center lg:justify-center">
       <div className="flex w-full flex-col items-center justify-center gap-6 text-center">

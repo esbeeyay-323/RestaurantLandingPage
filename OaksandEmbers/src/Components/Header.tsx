@@ -1,7 +1,7 @@
+import { NavLink } from "react-router-dom";
 import { Brand } from "./Brand";
 import MyDrawer from "./Drawer";
-
-const navigationItems = ["Menu", "Reservations", "About", "Gallery", "Contact"]
+import { navigationItems } from "../Data/NavigationItems";
 
 interface classNameProps  {
     className : string;
@@ -30,12 +30,20 @@ export const DesktopHeader = ({className, NavClassName}:classNameProps) => (
 
     <nav aria-label="Primary navigation">
       <ul
-        className={`flex gap-[clamp(1.25rem,1.5vw,2.5rem)] 
-            font-body text-[clamp(0.75rem,0.65vw,1.25rem)] font-medium uppercase tracking-[0.06em] ${NavClassName}`}
+        className={`primary-nav flex gap-[clamp(0.75rem,1vw,1.5rem)] font-body ${NavClassName}`}
       >
         {navigationItems.map((item) => (
-          <li key={item}>
-            <span>{item}</span>
+          <li key={item.to}>
+            <NavLink
+              viewTransition
+              className={({ isActive }) =>
+                `desktop-nav-link ${isActive ? "desktop-nav-link--active" : ""}`
+              }
+              end={item.to === "/"}
+              to={item.to}
+            >
+              {item.label}
+            </NavLink>
           </li>
         ))}
       </ul>

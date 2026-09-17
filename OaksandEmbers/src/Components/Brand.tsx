@@ -1,12 +1,14 @@
+import { NavLink } from "react-router-dom"
+
 export const Brand = ({className}: {
   className?: string
  
 }) => (
-  <p
+  <NavLink to="/" viewTransition
     className={`${className}`}
   >
     Ember <span className="text-ember-500">&amp;</span> Oak
-  </p>
+  </NavLink>
 )
 
 

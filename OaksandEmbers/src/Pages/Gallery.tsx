@@ -1,9 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { Brand } from "../Components/Brand";
-import MyDrawer from "../Components/Drawer";
-import { DesktopHeader } from "../Components/Header";
 import { galleryImages, type GalleryImage } from "../Data/GalleryImages";
-import { SiteFooter } from "../Components/SiteFooter";
+import { Link } from "react-router-dom";
 
 const chapters = [
   {
@@ -215,18 +212,6 @@ const Gallery = () => {
 
   return (
     <main className="gallery-page paper-surface min-h-dvh w-full font-body">
-      <header className="reservation-glass-header fixed inset-x-0 top-0 z-30 flex h-24.5 w-full items-center justify-between p-6 lg:hidden">
-        <Brand className="justify-self-start font-display text-[clamp(1.4rem,1.75vw,3.5rem)] font-medium uppercase tracking-[0.14em] text-bone-50" />
-        <MyDrawer className="brightness-0 invert" />
-      </header>
-
-      <div className="reservation-glass-header fixed inset-x-0 top-0 z-30 hidden p-6 lg:flex">
-        <DesktopHeader
-          NavClassName="text-bone-50"
-          className="hidden w-full grid-cols-[1fr_auto_1fr] items-center lg:grid"
-        />
-      </div>
-
       <section className="gallery-hero" aria-labelledby="gallery-title">
         <div className="gallery-hero-copy">
           <div className="gallery-kicker">
@@ -307,11 +292,9 @@ const Gallery = () => {
             Settle in, pass a plate, and let the evening take its time around
             the fire.
           </p>
-          <a href="#reservations">Reserve a table</a>
+          <Link to="/reservations" viewTransition>Reserve a table</Link>
         </div>
       </section>
-
-      <SiteFooter />
 
       <GalleryLightbox
         activeIndex={activeIndex}

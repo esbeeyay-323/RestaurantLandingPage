@@ -1,4 +1,5 @@
-const footerLinks = ["Menu", "Reservations", "About", "Gallery", "Contact"];
+import { Link } from "react-router-dom";
+import { navigationItems } from "../Data/NavigationItems";
 
 export const SiteFooter = () => (
   <footer className="site-footer">
@@ -13,9 +14,9 @@ export const SiteFooter = () => (
 
       <nav className="site-footer__nav" aria-label="Footer navigation">
         <ul>
-          {footerLinks.map((item) => (
-            <li key={item}>
-              <a href={`#${item.toLowerCase()}`}>{item}</a>
+          {navigationItems.map((item) => (
+            <li key={item.label}>
+              <Link to={item.to} viewTransition>{item.label}</Link>
             </li>
           ))}
         </ul>

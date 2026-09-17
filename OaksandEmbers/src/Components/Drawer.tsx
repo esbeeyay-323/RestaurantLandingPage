@@ -2,31 +2,8 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Drawer } from 'antd';
 import hamburger from "../assets/Icons/hamburger-menu.png"
 import close from "../assets/Icons/icons8-close-100.png"
-
-
-
-const Menu = [
-    {
-        id:1,
-        name:"Menu"
-    },
-    {
-        id:2,
-        name:"Reservations"
-    },
-    {
-        id:3,
-        name:"About"
-    },
-    {
-        id:4,
-        name:"Gallery"
-    },
-    {
-        id:5,
-        name:"Contact"
-    }
-]
+import { NavLink } from 'react-router-dom';
+import { navigationItems } from '../Data/NavigationItems';
 
 type MyDrawerProps = {
   className: string;
@@ -113,15 +90,28 @@ const MyDrawer: React.FC<MyDrawerProps> = ({ className }) => {
           body: { margin: 0, padding: 0, border: "none", background: "transparent" },
         }}
       >
-        <div className="flex h-full w-full flex-col items-center gap-6 bg-transparent p-6">
+        <nav aria-label="Mobile navigation" className="h-full w-full">
+          <div className="flex h-full w-full flex-col items-center gap-2 bg-transparent px-6 py-8">
             {
-                Menu.map((item)=>(
-                    <p className="drawer-nav-item w-full border-b border-brass-400/70 p-4 text-center font-display text-2xl text-bone-50" key={item.id}>
-                        {item.name}
-                    </p>
+                navigationItems.map((item)=>(
+                    <NavLink
+                    viewTransition
+                    key={item.to}
+                    to={item.to}
+                    end={item.to === "/"}
+                    onClick={onClose}
+                   className={({ isActive }) =>
+                    `drawer-nav-item w-full text-center font-display ${
+                      isActive
+                        ? "drawer-nav-item--active"
+                        : "drawer-nav-item--inactive"
+                    }`}>
+                      {item.label}
+                    </NavLink>
                 ))
             }
-        </div>
+          </div>
+        </nav>
       </Drawer>
     </>
   );

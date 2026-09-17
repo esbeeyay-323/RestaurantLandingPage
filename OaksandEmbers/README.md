@@ -1,75 +1,51 @@
-# React + TypeScript + Vite
+# Ember & Oak
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ember & Oak is a fictional wood-fired restaurant website created as a frontend portfolio project. The experience combines a dark, ember-lit atmosphere with tactile paper surfaces, editorial typography, responsive layouts, and accessible interactions.
 
-Currently, two official plugins are available:
+[View the source repository](https://github.com/esbeeyay-323/RestaurantLandingPage)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Ember & Oak desktop homepage](docs/ember-oak-homepage.png)
 
-## React Compiler
+<img src="docs/ember-oak-small-screen.png" alt="Ember & Oak small-screen homepage" width="320" />
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Highlights
 
-## Expanding the ESLint configuration
+- Responsive homepage, menu, reservations, about, gallery, contact, and custom 404 pages
+- Filterable menu with Ghana cedi pricing
+- Validated reservation and contact forms with demo submission notifications
+- Keyboard-accessible mobile navigation and gallery lightbox
+- Route-level code splitting, scroll restoration, and per-page metadata
+- Reduced-motion support and semantic page structure
+- Netlify and Vercel single-page application fallbacks
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technology
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React 19
+- TypeScript
+- Vite
+- React Router
+- Tailwind CSS
+- Ant Design
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Local development
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Open the local URL printed by Vite.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Quality checks
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run lint
+npm run test
+npm run build
 ```
+
+## Portfolio note
+
+Ember & Oak is a fictional concept. The reservation and contact forms validate and demonstrate successful interactions, but they do not send data to a backend or create real bookings.
+
+The restaurant address, telephone number, email address, opening hours, menu, and team profiles are presentation content for the concept.

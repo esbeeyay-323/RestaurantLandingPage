@@ -1,21 +1,25 @@
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Brand } from "../Components/Brand";
 
 const NotFound = () => {
-  const goBack = () => {
-    if (window.history.length > 1) {
-      window.history.back();
-      return;
-    }
 
-    window.location.assign("/");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+
+  const goBack = () => {
+    if (location.key === "default") {
+    navigate("/", { replace: true });
+  } else {
+    navigate(-1);
+  }
   };
 
   return (
     <main className="not-found-page dark-surface min-h-dvh overflow-hidden">
       <header className="not-found-header">
-        <a href="/" aria-label="Ember and Oak home">
           <Brand className="font-display text-[clamp(1.25rem,2vw,1.75rem)] font-medium uppercase tracking-[0.14em] text-bone-50" />
-        </a>
+        
 
         <p aria-hidden="true">Osu · Accra</p>
       </header>
@@ -38,16 +42,12 @@ const NotFound = () => {
           </p>
 
           <div className="not-found-actions">
-            <a href="/">Return home</a>
+            <Link to="/" viewTransition>Return home</Link>
             <button type="button" onClick={goBack}>Go back</button>
           </div>
         </div>
       </section>
 
-      <footer className="not-found-footer">
-        <span>404 · Page not found</span>
-        <span>Fire · Flavour · Good company</span>
-      </footer>
     </main>
   );
 };

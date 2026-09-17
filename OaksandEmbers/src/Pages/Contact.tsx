@@ -7,8 +7,7 @@ import {
   PhoneOutlined,
 } from "@ant-design/icons";
 import { Button, ConfigProvider, Form, Input } from "antd";
-import { DesktopHeader, MobileHeader } from "../Components/Header";
-import { SiteFooter } from "../Components/SiteFooter";
+import { FormSuccessNotice } from "../Components/FormSuccessNotice";
 
 const { TextArea } = Input;
 
@@ -61,25 +60,12 @@ function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = () => {
-    setSubmitted(true);
     form.resetFields();
+    setSubmitted(true);
   };
 
   return (
     <main className="contact-page dark-surface min-h-dvh w-full overflow-x-hidden">
-      <MobileHeader
-        className="reservation-glass-header fixed inset-x-0 top-0 z-30 flex w-full items-center justify-between p-6 lg:hidden"
-        DrawerClassName="brightness-0 invert"
-        BrandClassName="font-display text-[clamp(1.35rem,4vw,1.75rem)] font-medium uppercase tracking-[0.14em] text-bone-50"
-      />
-
-      <div className="reservation-glass-header fixed inset-x-0 top-0 z-30 hidden p-6 lg:flex">
-        <DesktopHeader
-          NavClassName="text-bone-50"
-          className="hidden w-full grid-cols-[1fr_auto_1fr] items-center lg:grid"
-        />
-      </div>
-
       <div className="grid min-h-dvh grid-cols-1 lg:grid-cols-2">
         <section className="contact-dark-panel hidden h-full min-h-0 items-start px-[clamp(3rem,7vw,9rem)] pb-5 pt-[clamp(7rem,14vh,8.5rem)] text-bone-50 lg:flex">
           <div className="w-full max-w-2xl">
@@ -177,7 +163,10 @@ function Contact() {
                   name="fullName"
                   label="Full name"
                   layout="vertical"
-                  rules={[{ required: true, message: "Please enter your name" }]}
+                  rules={[
+                    { required: true, whitespace: true, message: "Please enter your full name." },
+                    { min: 2, message: "Your name should be at least 2 characters." },
+                  ]}
                 >
                   <Input autoComplete="name" placeholder="Ama Mensah" />
                 </Form.Item>
@@ -187,8 +176,8 @@ function Contact() {
                   label="Email address"
                   layout="vertical"
                   rules={[
-                    { required: true, message: "Please enter your email" },
-                    { type: "email", message: "Please enter a valid email" },
+                    { required: true, message: "Please enter your email address." },
+                    { type: "email", message: "Please enter a valid email address." },
                   ]}
                 >
                   <Input
@@ -202,7 +191,11 @@ function Contact() {
                   name="subject"
                   label="Subject"
                   layout="vertical"
-                  rules={[{ required: true, message: "Please add a subject" }]}
+                  rules={[
+                    { required: true, whitespace: true, message: "Please tell us what your message is about." },
+                    { min: 3, message: "The subject should be at least 3 characters." },
+                    { max: 100, message: "Please keep the subject under 100 characters." },
+                  ]}
                 >
                   <Input placeholder="Private dining enquiry" />
                 </Form.Item>
@@ -211,7 +204,11 @@ function Contact() {
                   name="message"
                   label="Message"
                   layout="vertical"
-                  rules={[{ required: true, message: "Please enter a message" }]}
+                  rules={[
+                    { required: true, whitespace: true, message: "Please enter your message." },
+                    { min: 10, message: "Please add a little more detail so we can understand your enquiry." },
+                    { max: 1000, message: "Please keep your message under 1,000 characters." },
+                  ]}
                 >
                   <TextArea
                     autoSize={{ minRows: 2, maxRows: 4 }}
@@ -228,21 +225,18 @@ function Contact() {
                   </Button>
                 </Form.Item>
 
-                <p
-                  className={`mt-2 min-h-5 font-body text-sm text-ink-600 transition-opacity ${
-                    submitted ? "opacity-100" : "opacity-0"
-                  }`}
-                  role="status"
-                  aria-live="polite"
-                >
-                  Thank you. Your message is ready for our team.
-                </p>
+                {submitted && (
+                  <FormSuccessNotice
+                    title="Message submitted"
+                    message="Your form has been cleared. This portfolio demo does not send a real message."
+                    onDismiss={() => setSubmitted(false)}
+                  />
+                )}
               </Form>
             </ConfigProvider>
           </div>
         </section>
       </div>
-      <SiteFooter />
     </main>
   );
 }
