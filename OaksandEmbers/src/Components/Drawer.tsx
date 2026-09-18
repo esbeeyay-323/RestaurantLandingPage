@@ -3,6 +3,8 @@ import { Drawer } from 'antd';
 import hamburger from "../assets/Icons/hamburger-menu.png"
 import close from "../assets/Icons/icons8-close-100.png"
 import { NavLink } from 'react-router-dom';
+import { FacebookOutlined, InstagramOutlined, WhatsAppOutlined } from '@ant-design/icons';
+import { ConstactInfo } from '../Data/Contact';
 import { navigationItems } from '../Data/NavigationItems';
 
 type MyDrawerProps = {
@@ -90,8 +92,8 @@ const MyDrawer: React.FC<MyDrawerProps> = ({ className }) => {
           body: { margin: 0, padding: 0, border: "none", background: "transparent" },
         }}
       >
-        <nav aria-label="Mobile navigation" className="h-full w-full">
-          <div className="flex h-full w-full flex-col items-center gap-2 bg-transparent px-6 py-8">
+        <div className="flex h-full w-full flex-col bg-transparent px-6 py-8">
+          <nav aria-label="Mobile navigation" className="flex w-full flex-col items-center gap-2">
             {
                 navigationItems.map((item)=>(
                     <NavLink
@@ -110,8 +112,22 @@ const MyDrawer: React.FC<MyDrawerProps> = ({ className }) => {
                     </NavLink>
                 ))
             }
+          </nav>
+          <div className="drawer-socials" aria-label="Social channels">
+            <p>Connect with us</p>
+            <div>
+              <a href={ConstactInfo.whatsapp} target="_blank" rel="noopener noreferrer">
+                <WhatsAppOutlined aria-hidden="true" /> WhatsApp
+              </a>
+              <a href={ConstactInfo.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <InstagramOutlined aria-hidden="true" />
+              </a>
+              <a href={ConstactInfo.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <FacebookOutlined aria-hidden="true" />
+              </a>
+            </div>
           </div>
-        </nav>
+        </div>
       </Drawer>
     </>
   );

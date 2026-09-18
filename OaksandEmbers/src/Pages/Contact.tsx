@@ -5,8 +5,10 @@ import {
   InstagramOutlined,
   MailOutlined,
   PhoneOutlined,
+  WhatsAppOutlined,
 } from "@ant-design/icons";
 import { Button, ConfigProvider, Form, Input } from "antd";
+import { ConstactInfo } from "../Data/Contact";
 import { FormSuccessNotice } from "../Components/FormSuccessNotice";
 
 const { TextArea } = Input;
@@ -91,6 +93,18 @@ function Contact() {
                 </a>
                 <a
                   className="contact-detail-row"
+                  href={ConstactInfo.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <WhatsAppOutlined aria-hidden="true" />
+                  <span>
+                    <small>WhatsApp</small>
+                    Chat with our team
+                  </span>
+                </a>
+                <a
+                  className="contact-detail-row"
                   href="mailto:hello@emberandoak.com"
                 >
                   <MailOutlined aria-hidden="true" />
@@ -119,18 +133,31 @@ function Contact() {
                 Follow
               </span>
               <a
+                href={ConstactInfo.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="contact-social-link"
-                href="#instagram"
                 aria-label="Ember and Oak on Instagram"
               >
                 <InstagramOutlined />
               </a>
               <a
+                href={ConstactInfo.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="contact-social-link"
-                href="#facebook"
                 aria-label="Ember and Oak on Facebook"
               >
                 <FacebookOutlined />
+              </a>
+              <a
+                href={ConstactInfo.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-social-link"
+                aria-label="Ember and Oak on WhatsApp"
+              >
+                <WhatsAppOutlined />
               </a>
             </div>
           </div>
